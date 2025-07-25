@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark Forest Theme - Deep greens, blacks, and earthy tones */
+    --background: 120 15% 8%;
+    --foreground: 120 10% 85%;
+
+    --card: 120 15% 10%;
+    --card-foreground: 120 10% 85%;
+
+    --popover: 120 15% 10%;
+    --popover-foreground: 120 10% 85%;
+
+    --primary: 120 60% 20%;
+    --primary-foreground: 120 5% 95%;
+    --primary-glow: 120 60% 30%;
+
+    --secondary: 120 15% 15%;
+    --secondary-foreground: 120 10% 85%;
+
+    --muted: 120 15% 12%;
+    --muted-foreground: 120 8% 55%;
+
+    --accent: 120 40% 25%;
+    --accent-foreground: 120 5% 95%;
+
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 120 5% 95%;
+
+    --border: 120 15% 20%;
+    --input: 120 15% 15%;
+    --ring: 120 60% 30%;
+
+    /* Forest-inspired gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(var(--background)), hsl(120 20% 12%));
+    --gradient-moss: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-emerald: linear-gradient(135deg, hsl(120 50% 25%), hsl(120 70% 35%));
+    
+    /* Nature shadows */
+    --shadow-forest: 0 10px 30px -10px hsl(120 50% 5% / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+    --shadow-moss: 0 4px 20px hsl(120 60% 15% / 0.4);
+
+    /* Smooth transitions */
+    --transition-forest: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Enhanced Dark Forest Theme */
+    --background: 120 20% 6%;
+    --foreground: 120 8% 90%;
+
+    --card: 120 20% 8%;
+    --card-foreground: 120 8% 90%;
+
+    --popover: 120 20% 8%;
+    --popover-foreground: 120 8% 90%;
+
+    --primary: 120 70% 25%;
+    --primary-foreground: 120 5% 98%;
+    --primary-glow: 120 70% 35%;
+
+    --secondary: 120 20% 12%;
+    --secondary-foreground: 120 8% 90%;
+
+    --muted: 120 20% 10%;
+    --muted-foreground: 120 6% 60%;
+
+    --accent: 120 50% 30%;
+    --accent-foreground: 120 5% 98%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 120 5% 98%;
+
+    --border: 120 20% 18%;
+    --input: 120 20% 12%;
+    --ring: 120 70% 35%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Forest theme utilities */
+  .forest-gradient {
+    background: var(--gradient-forest);
+  }
+
+  .moss-gradient {
+    background: var(--gradient-moss);
+  }
+
+  .emerald-gradient {
+    background: var(--gradient-emerald);
+  }
+
+  .forest-shadow {
+    box-shadow: var(--shadow-forest);
+  }
+
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .moss-shadow {
+    box-shadow: var(--shadow-moss);
+  }
+
+  .forest-transition {
+    transition: var(--transition-forest);
+  }
+
+  /* Nature-inspired animations */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes leaf-sway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  @keyframes forest-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes moss-grow {
+    0% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+
+  .animate-float {
+    animation: gentle-float 3s ease-in-out infinite;
+  }
+
+  .animate-sway {
+    animation: leaf-sway 4s ease-in-out infinite;
+  }
+
+  .animate-forest-pulse {
+    animation: forest-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-moss-grow {
+    animation: moss-grow 0.3s ease-out;
+  }
+
+  /* Glowing effects for buttons */
+  .btn-forest-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-forest-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-forest-glow:hover::before {
+    left: 100%;
+  }
+
+  /* Wildlife animation keyframes */
+  @keyframes bird-fly {
+    0% { transform: translateX(-50px) translateY(0px); }
+    25% { transform: translateX(25vw) translateY(-20px); }
+    50% { transform: translateX(50vw) translateY(10px); }
+    75% { transform: translateX(75vw) translateY(-15px); }
+    100% { transform: translateX(120vw) translateY(5px); }
+  }
+
+  @keyframes leaf-fall {
+    0% { 
+      transform: translateY(-10vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+      transform: translateY(110vh) translateX(100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes firefly-glow {
+    0%, 100% { 
+      opacity: 0.2;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.5);
+      box-shadow: 0 0 10px hsl(var(--primary-glow));
+    }
+  }
+
+  @keyframes gentle-sway {
+    0%, 100% { transform: translateX(0) rotate(-2deg); }
+    50% { transform: translateX(10px) rotate(2deg); }
+  }
+
+  @keyframes grass-sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+
+  /* Wildlife animation utility classes */
+  .animate-bird-fly {
+    animation: bird-fly 20s linear infinite;
+  }
+  
+  .animate-leaf-fall {
+    animation: leaf-fall 15s linear infinite;
+  }
+  
+  .animate-firefly-glow {
+    animation: firefly-glow 3s ease-in-out infinite;
+  }
+  
+  .animate-gentle-sway {
+    animation: gentle-sway 4s ease-in-out infinite;
+  }
+  
+  .animate-grass-sway {
+    animation: grass-sway 3s ease-in-out infinite;
+  }
+}
